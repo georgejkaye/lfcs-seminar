@@ -17,6 +17,7 @@
 \begin{frame}
     \frametitle{It's combinational time again}
 
+    \centering
     \begin{minipage}{0.49\textwidth}
         \begin{equation*}
             \dsptikzfig{circuits/axioms/gate-lhs}
@@ -50,16 +51,163 @@
         }
     \end{minipage}
 
-    \Large
-    Quotient \(\scircsigma\) by these equations: \(\scircsigmac\).
-
     \wait
-    In \(\scircsigmac\) we always have that \(
-        \dsptikzfig{circuits/components/circuits/f-applied}[F][comb][\overline{v}]
+
+    \visible<5->{
+        \(\scircsigmac := \scircsigma /\) these equations
+        \begin{theorem}
+            For \(
+                \dsptikzfig{circuits/components/values/v}[\overline{v}]
+            \) and \(
+                \dsptikzfig{strings/category/f}[F][comb]
+            \), there exists \(
+                \dsptikzfig{circuits/components/values/v}[\overline{w}]
+            \) such that \(
+                \dsptikzfig{circuits/components/circuits/f-applied}[F][comb][\overline{v}]
+                    =
+                \dsptikzfig{circuits/components/values/v}[\overline{w}]
+            \) in \(\scircsigmac\).
+        \end{theorem}
+    }
+\end{frame}
+\begin{frame}
+    \frametitle{Let's get structural}
+
+    \centering
+
+    \[(
+        \dsptikzfig{strings/structure/monoid/merge}[comb],
+        \dsptikzfig{strings/structure/monoid/init}[comb],
+        \dsptikzfig{strings/structure/comonoid/copy}[comb],
+        \dsptikzfig{strings/structure/comonoid/discard}[comb],
+    )\] is a \alert{bialgebra}.
+
+    \begin{minipage}{0.21\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/monoid/unitality-l-lhs}
+            =
+            \iltikzfig{strings/structure/monoid/unitality-l-rhs}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.26\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/monoid/associativity-lhs}
+            =
+            \iltikzfig{strings/structure/monoid/associativity-rhs}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.26\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/monoid/commutativity-lhs}
+            =
+            \iltikzfig{strings/structure/monoid/commutativity-rhs}
+        \end{equation*}
+    \end{minipage}
+
+    \begin{minipage}{0.21\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/comonoid/unitality-l-lhs}
+            =
+            \iltikzfig{strings/structure/comonoid/unitality-l-rhs}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.26\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/comonoid/associativity-lhs}
+            =
+            \iltikzfig{strings/structure/comonoid/associativity-rhs}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.26\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/comonoid/commutativity-lhs}
+            =
+            \iltikzfig{strings/structure/comonoid/commutativity-rhs}
+        \end{equation*}
+    \end{minipage}
+
+    \begin{minipage}{0.28\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/bialgebra/merge-copy-lhs}
+            =
+            \iltikzfig{strings/structure/bialgebra/merge-copy-rhs}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/bialgebra/init-copy-lhs}
+            =
+            \iltikzfig{strings/structure/bialgebra/init-copy-rhs}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.23\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/bialgebra/merge-discard-lhs}
+            =
+            \iltikzfig{strings/structure/bialgebra/merge-discard-rhs}
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.2\textwidth}
+        \begin{equation*}
+            \iltikzfig{strings/structure/bialgebra/init-discard-lhs}
+            =
+            \iltikzfig{strings/structure/bialgebra/init-discard-rhs}
+        \end{equation*}
+    \end{minipage}
+\end{frame}
+\begin{frame}
+    \frametitle{Don't forget the useful circuits}
+
+    (pre)Mealy form (disconnect)
+
+\end{frame}
+\begin{frame}
+    \frametitle{Getting rid of non-delay-guarded feedback}
+
+    Instant feedback
+
+\end{frame}
+\begin{frame}
+    \frametitle{Let's get structural}
+
+    What more structure can we add?
+
+    Cartesian
+
+\end{frame}
+\begin{frame}
+    \frametitle{Let's get structural}
+
+    Unfolding
+
+\end{frame}
+\begin{frame}
+    \frametitle{Running the simulation}
+
+    \centering
+    \begin{equation*}
+        \dsptikzfig{circuits/productivity/productive-goal-lhs-verbose}[F][v]
         =
-        \dsptikzfig{circuits/components/values/v}[\overline{w}]
-    \).
+        \dsptikzfig{circuits/productivity/productive-goal-rhs-verbose}[G][w]
+    \end{equation*}
 
+\end{frame}
+\begin{frame}
+    \frametitle{Running the simulation}
 
+    First the \emph{combinational} case...
+
+    \centering
+    \begin{equation*}
+        \dsptikzfig{circuits/axioms/streaming-lhs-verbose}
+        =
+        \dsptikzfig{circuits/axioms/streaming-rhs}
+    \end{equation*}
+
+\end{frame}
+\begin{frame}
+    \frametitle{Working it all out}
+
+    Full reduction
 
 \end{frame}
