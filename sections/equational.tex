@@ -1,0 +1,65 @@
+\section{Equational reasoning}
+
+\begin{frame}
+    \frametitle{Now what?}
+
+    We have a \alert{sound and complete} semantics for circuits as
+    \alert{stream functions}.
+
+    \wait
+
+    But reasoning with streams can be a \alert{pain}...
+
+    \wait
+    Why not reason \alert{equationally}?
+\end{frame}
+
+\begin{frame}
+    \frametitle{It's combinational time again}
+
+    \begin{minipage}{0.49\textwidth}
+        \begin{equation*}
+            \dsptikzfig{circuits/axioms/gate-lhs}
+            =
+            \dsptikzfig{circuits/axioms/gate-rhs-simple}
+        \end{equation*}
+
+        \visible<3->{
+            \begin{equation*}
+                \dsptikzfig{circuits/axioms/join-lhs}[v][w]
+                =
+                \dsptikzfig{circuits/axioms/join-rhs}[v][w]
+            \end{equation*}
+        }
+    \end{minipage}
+    \begin{minipage}{0.49\textwidth}
+        \visible<2->{
+            \begin{equation*}
+                \dsptikzfig{circuits/axioms/fork-lhs}[v]
+                =
+                \dsptikzfig{circuits/axioms/fork-rhs}[v]
+            \end{equation*}
+        }
+
+        \visible<4->{
+            \begin{equation*}
+                \dsptikzfig{circuits/axioms/stub-lhs}[v]
+                =
+                \dsptikzfig{strings/monoidal/empty}
+            \end{equation*}
+        }
+    \end{minipage}
+
+    \Large
+    Quotient \(\scircsigma\) by these equations: \(\scircsigmac\).
+
+    \wait
+    In \(\scircsigmac\) we always have that \(
+        \dsptikzfig{circuits/components/circuits/f-applied}[F][comb][\overline{v}]
+        =
+        \dsptikzfig{circuits/components/values/v}[\overline{w}]
+    \).
+
+
+
+\end{frame}
