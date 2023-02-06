@@ -1,0 +1,276 @@
+\section{Semantics}
+
+\begin{frame}
+    \frametitle{We need some meaning}
+
+    Values are interpreted in a \alert{lattice}:
+
+    \begin{minipage}{0.49\textwidth}
+        \[
+            \scalebox{1.5}{\tikzfig{circuits/a4}}
+        \]
+    \end{minipage}
+    \begin{minipage}{0.49\textwidth}
+        \begin{align*}
+            \dsptikzfig{circuits/components/values/v}[\belnapfalse]
+            \,&\mapsto\, 0 \\
+            \dsptikzfig{circuits/components/values/v}[\belnaptrue]
+            \,&\mapsto\, 1 \\
+            \dsptikzfig{circuits/components/values/v}[\belnapboth]
+            \,&\mapsto\, \top \\
+            \dsptikzfig{strings/structure/monoid/init}[comb]
+            \,&\mapsto\, \bot \\
+        \end{align*}
+    \end{minipage}
+\end{frame}
+\begin{frame}
+    \frametitle{Let's make everything a function}
+
+    \setlength{\tabcolsep}{1.5em}
+    \renewcommand{\arraystretch}{2}
+
+    \begin{center}
+        \begin{tabular}{lrl}
+            \dsptikzfig{circuits/components/gates/gate}[g]
+            &
+            \alert{monotone functions}
+            &
+            \(\morph{\overline{g}}{\valuetuple{m}}{\values}\)
+            \\
+            \wait
+            \hspace{0.2cm}
+            \dsptikzfig{strings/structure/monoid/init}[comb]
+            &
+            \alert{initialise}
+            &
+            \(() \mapsto (\bot)\)
+            \\
+            \wait
+            \dsptikzfig{strings/structure/comonoid/copy}[comb]
+            &
+            \alert{copy}
+            &
+            \(x \mapsto (x, x)\)
+            \\
+            \wait
+            \dsptikzfig{strings/structure/monoid/merge}[comb]
+            &
+            \alert{join in the lattice}
+            &
+            \((x, y) \mapsto x \ljoin y\)
+            \\
+            \wait
+            \dsptikzfig{strings/structure/comonoid/discard}[comb]
+            &
+            \alert{discard}
+            &
+            \(x \mapsto \bullet\)
+        \end{tabular}
+        \wait
+
+        Feedback is interpreted as the \alert{least fixed point}.
+    \end{center}
+\end{frame}
+\begin{frame}
+        \frametitle{Functions are not enough}
+
+        \centering
+        \LARGE
+        How do we model \alert{delay}?
+
+        \wait
+        \alert{Streams!}
+\end{frame}
+\begin{frame}
+    \frametitle{Streams}
+
+    A \alert{stream} \(\stream{\values}\) is an infinite sequence of values.
+    \[
+        v_0
+        \streamcons
+        v_1
+        \streamcons
+        v_2
+        \streamcons
+        v_3
+        \streamcons
+        v_4
+        \streamcons
+        v_5
+        \streamcons
+        v_6
+        \streamcons
+        v_7
+        \streamcons
+        \cdots
+    \]
+
+    \wait
+    A \alert{stream function} \(\stream{\values} \to \stream{\values}\) consumes and
+    produces streams.
+    \[
+        f(
+            v_0
+            \streamcons
+            v_1
+            \streamcons
+            v_2
+            \streamcons
+            v_3
+            \streamcons
+            v_4
+            \streamcons
+            \cdots
+        ) =
+        w_0
+        \streamcons
+        w_1
+        \streamcons
+        w_2
+        \streamcons
+        w_3
+        \streamcons
+        w_4
+        \streamcons
+        \cdots
+    \]
+\end{frame}
+\begin{frame}
+    \frametitle{Interpreting the sequential components}
+    \[
+        \dsptikzfig{circuits/components/values/v}[v]()
+        :=
+        v \streamcons \bot \streamcons \bot \streamcons \bot \streamcons \cdots
+    \]
+
+    \wait
+    \vspace{1em}
+
+    \[
+        \dsptikzfig{circuits/components/waveforms/delay}(
+            v_0 \streamcons v_1 \streamcons v_2 \streamcons \cdots
+        )
+        :=
+        \bot \streamcons v_0 \streamcons v_1 \streamcons v_2 \streamcons \cdots
+    \]
+\end{frame}
+\begin{frame}{Maybe there are too many streams}
+
+    \centering
+    \LARGE
+    Does every circuit correspond to a stream function \(
+        \valuetuplestream{m} \to \valuetuplestream{n}
+    \)?
+
+    \Huge
+    No.
+
+    \scriptsize
+    \wait
+    (but this is to be expected!)
+\end{frame}
+\begin{frame}
+    \frametitle{Circuits are causal and monotone}
+
+    \Large
+    Circuits are \alert{causal}.
+
+    \wait
+
+    \normalsize
+    They can only depend \alert{what they've seen so far}.
+
+    \wait
+
+    \Large
+    Circuits are \alert{monotone}.
+
+    \wait
+
+    \normalsize
+    They are constructed from \alert{monotone functions}.
+
+    \wait
+
+    Is that all?
+    \wait
+    \alert{Not quite...}
+    \wait
+    (but we'll get there)
+
+
+\end{frame}
+\begin{frame}
+    \frametitle{Some operations on stream function}
+
+    Given a causal stream function \(
+        \morph{f}{\valuetuplestream{m}}{\valuetuplestream{n}}
+    \) and an element \(a \in \valuetuple{m}\)...
+
+    \wait
+
+    \Large \alert{initial output} \quad
+    \(\mealyoutput{f}{a} \in \valuetuple{n}\)
+
+    \wait
+
+    `the first thing \(f\) produces given \(a\)'
+
+    \wait
+
+    \alert{stream derivative} \quad
+    \(\mealytransition{f}{a} \in \valuetuplestream{m} \to \valuetuplestream{n}\)
+
+    \wait
+
+    `how \(f\) behaves after seeing \(a\) first'
+
+    \wait
+    Hold on, these look familiar...
+
+\end{frame}
+\begin{frame}
+    \frametitle{An old friend}
+
+    \Large
+
+    \begin{center}
+        \includegraphics[scale=0.33]{imgs/mealy}
+        \quad
+        \includegraphics[scale=0.5]{imgs/mealy-machine}
+
+        Mealy machine moment!
+
+        \wait
+
+        \normalsize
+        Stream functions are the \emph{states} in a Mealy machine.
+    \end{center}
+
+\end{frame}
+\begin{frame}
+    \frametitle{Circuits have finitely many behaviours}
+
+    Circuits have a finite number of components.
+
+    \wait
+
+    So there are finite number of states in the Mealy machine.
+
+    \wait
+
+    So the outputs of streams given some input must be \alert{periodic}.
+
+    \wait
+
+    (There are finitely many \alert{stream derivatives}).
+\end{frame}
+\begin{frame}
+    \frametitle{These are the streams we're looking for}
+
+    \begin{theorem}
+        A stream function is the interpretation of a sequential circuit
+        if and only if it is \textbf{causal}, \textbf{monotone} and has
+        \textbf{finitely many stream derivatives}.
+    \end{theorem}
+\end{frame}

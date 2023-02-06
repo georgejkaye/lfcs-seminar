@@ -1,0 +1,158 @@
+\section{Syntax}
+
+\begin{frame}
+    \frametitle{Combinational circuit components}
+    \renewcommand{\arraystretch}{1.25}
+    \vspace{1em}
+    \wait
+    \begin{minipage}{0.33\textwidth}
+        \centering
+        \alert{gates}
+        \renewcommand{\arraystretch}{2}
+
+        \vspace{1em}
+
+        \begin{tabular}{rl}
+            \dsptikzfig{circuits/components/gates/and} &
+            AND gate \\
+            \dsptikzfig{circuits/components/gates/or} &
+            OR gate \\
+            \dsptikzfig{circuits/components/gates/not} &
+            NOT gate \\
+        \end{tabular}
+    \end{minipage}
+    \wait
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \alert{(co)monoid structure}
+
+        \vspace{1em}
+
+        \renewcommand{\arraystretch}{1.75}
+        \begin{tabular}{cl}
+            \dsptikzfig{strings/structure/monoid/init}[comb] &
+            disconnected \\
+            \dsptikzfig{strings/structure/comonoid/copy}[comb] &
+            fork \\
+            \wait
+            \dsptikzfig{strings/structure/monoid/merge}[comb] &
+            join \\
+            \wait
+            \dsptikzfig{strings/structure/comonoid/discard}[comb] &
+            stub \\
+        \end{tabular}
+    \end{minipage}
+    \wait
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \alert{category structure}
+
+        \vspace{1em}
+
+        \renewcommand{\arraystretch}{1.75}
+        \begin{tabular}{cl}
+            \wait
+            \dsptikzfig{strings/category/identity}[comb] &
+            identity \\
+            \wait
+            \dsptikzfig{strings/symmetric/symmetry}[comb] &
+            symmetry \\
+        \end{tabular}
+    \end{minipage}
+
+
+    \vspace{0.5em}
+
+    \wait
+    \begin{center}
+        \alert{Light} circuits \(
+            \dsptikzfig{strings/category/f}[F][comb]
+        \) only contain gates and structure.
+    \end{center}
+\end{frame}
+\begin{frame}
+    \frametitle{Sequential circuit components}
+
+    \wait
+
+    \centering
+    Introduces \alert{state}.
+
+    \renewcommand{\arraystretch}{1.75}
+
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \alert{Values}
+
+        \begin{tabular}{rl}
+            \dsptikzfig{circuits/components/values/v}[\belnapfalse] &
+            false \\
+            \dsptikzfig{circuits/components/values/v}[\belnaptrue] &
+            true \\
+            \wait
+            \dsptikzfig{circuits/components/values/v}[\belnapboth] &
+            short circuit
+        \end{tabular}
+
+        \vspace{1em}
+
+        Along with \(
+            \iltikzfig{strings/structure/monoid/init}[comb]
+        \), models \emph{Belnap's four value logic}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \alert{Delay}
+
+        \[
+            \dsptikzfig{circuits/components/waveforms/delay}
+        \]
+    \end{minipage}
+    \wait
+    \begin{minipage}{0.3\textwidth}
+        \centering
+        \alert{Feedback}
+
+        \[
+            \dsptikzfig{strings/category/f-2-2}[F][seq]
+            \,\,\Rightarrow\,\,
+            \dsptikzfig{strings/traced/trace-rhs}[F][seq]
+        \]
+    \end{minipage}
+
+    \vspace{1em}
+
+    \wait
+
+    \begin{center}
+        \alert{Dark} circuits \(
+            \dsptikzfig{strings/category/f}[F][seq]
+        \) may contain delay or feedback.
+    \end{center}
+\end{frame}
+\begin{frame}
+    \frametitle{Building circuits}
+
+    \centering
+    \LARGE
+    Circuits are morphisms in a
+    \alert{freely generated symmetric traced monoidal category} (STMC).
+
+    \wait
+    \dsptikzfig{strings/category/composition-2-2}[F][G][seq]
+    \wait
+    \quad
+    \dsptikzfig{strings/monoidal/tensor-2-2}[F][G][seq]
+    \wait
+    \quad
+    \dsptikzfig{strings/traced/trace-rhs}[F][seq]
+
+    \wait
+
+    This category is \(\scircsigma\).
+
+    \wait
+
+    \scriptsize
+    (Don't worry about the \(\Sigma\))
+\end{frame}
