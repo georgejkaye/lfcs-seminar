@@ -225,7 +225,41 @@
     ...but there is the non-delay-guarded trace!
 \end{frame}
 \begin{frame}
+    \frametitle{Do we even need it?}
+
+    In industry, normally circuits must be \alert{delay-guarded}.
+
+    \wait
+
+    But this rules out some \alert{clever} circuits!
+
+    \vspace{0.5em}
+
+    \scalebox{0.75}{
+        \dsptikzfig{circuits/examples/cyclic-combinational/circuit-scirc}
+        \(\Rightarrow\)
+        \dsptikzfig{circuits/examples/cyclic-combinational/reduced-true}
+    }
+
+    \wait
+
+    \vspace{0.5em}
+
+    \scriptsize
+    (And also it would be cheating)
+
+\end{frame}
+\begin{frame}
     \frametitle{Getting rid of non-delay-guarded feedback}
+
+    \(\values\) is a \alert{finite} lattice...\
+
+    \wait
+    The functions are monotone...
+
+    \wait
+    We can compute the \alert{least fixed point} in finite iterations!
+
 
     \centering
     \[
@@ -248,16 +282,24 @@
             \dsptikzfig{circuits/instant-feedback/fixpoint-concrete}
         \]
     \end{axiom}
+\end{frame}
+\begin{frame}
+    \frametitle{Getting rid of non-delay-guarded feedback}
 
-    \vspace{0.25em}
 
     \[
         \dsptikzfig{circuits/instant-feedback/trand}
         \quad
+        \wait
         =
         \quad
         \dsptikzfig{circuits/instant-feedback/trand-instfb}
+        =
+        \wait
+        \quad
+        \dsptikzfig{strings/structure/monoid/init}[comb]
     \]
+
 
 \end{frame}
 \begin{frame}
