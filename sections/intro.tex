@@ -2,7 +2,7 @@
 \begin{frame}
     \frametitle{How we got here}
     \centering
-    \wait
+    \pause
     \raisebox{-3em}{
         \includegraphics[width=0.2\textwidth]{imgs/me}
     }
@@ -11,11 +11,11 @@
         \emph{`Hi Ohad, want to do a seminar at Birmingham?'}
     \end{minipage}
 
-    \wait
+    \pause
     \LARGE
     \textbf{Six months later...}
     \normalsize
-    \wait
+    \pause
 
     \begin{minipage}{0.6\textwidth}
         \emph{`How about you do a seminar at Edinburgh first?'}
@@ -28,27 +28,26 @@
 
 \begin{frame}
     \frametitle{What are we going to be talking about?}
-
-    \wait
+    \pause
     \centering
     \LARGE
     Digital circuits!
 
-    \begin{center}
-        \visible<2>{
-            \only<-2>{
-                \includegraphics[width=0.6\textwidth]{imgs/circuit}
-            }
-        }
-        \only<3>{\includegraphics[width=0.6\textwidth]{imgs/adder}}
-    \end{center}
+    \includegraphics[width=0.6\textwidth]{imgs/circuit}
+\end{frame}
+\begin{frame}
+    \frametitle{What are we going to be talking about?}
+    \centering
+    \LARGE
+    Digital circuits!
 
+    \includegraphics[width=0.6\textwidth]{imgs/adder}
 \end{frame}
 
 \begin{frame}
     \frametitle{What are we going to be talking about?}
 
-    \wait
+    \pause
 
     \centering
     \LARGE
@@ -56,28 +55,28 @@
 
     \vspace{0.5em}
 
-    \wait
+    \pause
     \dsptikzfig{strings/category/f-2-2}[F][seq]
     \dsptikzfig{strings/category/f-2-2}[G][seq]
 
     \vspace{0.5em}
 
-    \wait
+    \pause
     \dsptikzfig{strings/category/composition-2-2}[F][G][seq]
-    \wait
+    \pause
     \quad
     \dsptikzfig{strings/monoidal/tensor-2-2}[F][G][seq]
-    \wait
+    \pause
     \quad
     \dsptikzfig{strings/traced/trace-rhs}[F][seq]
 
-    \wait
+    \pause
     \vspace{0.5em}
 
     \normalsize
     These operations may look familiar to you!
 
-    \wait
+    \pause
 
     Previous attempts foiled by \alert{non-delay-guarded feedback}.
 
@@ -86,14 +85,14 @@
 \begin{frame}
     \frametitle{What came before}
 
-    \wait
+    \pause
     \alert{Lafont (2003)}
     \emph{`Towards an algebraic theory of Boolean circuits'}
 
     \includegraphics[width=0.15\textwidth]{imgs/lafont}
 
     \vspace{0.5em}
-    \wait
+    \pause
 
     \alert{Ghica, Jung, Lopez (2017)}
     \emph{`Diagrammatic semantics for digital circuits'}
@@ -107,7 +106,7 @@
     \frametitle{Enter stage left}
 
     \centering
-    \wait
+    \pause
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=0.5\textwidth]{imgs/sprunger}
@@ -117,7 +116,7 @@
         \scriptsize
         Indiana State University
     \end{minipage}
-    \wait
+    \pause
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=0.5\textwidth]{imgs/ghica}
@@ -128,7 +127,7 @@
         University of Birmingham
     \end{minipage}
 
-    \wait
+    \pause
     \scriptsize
     (and me)
     \raisebox{-0.5em}{\includegraphics[width=0.05\textwidth]{imgs/me}}

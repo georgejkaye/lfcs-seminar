@@ -1,8 +1,5 @@
-\documentclass[aspectratio=169]{beamer}
-
 \usepackage{figures/tikzit}
 \usepackage{graphicx}
-\usepackage{etoolbox}
 \usepackage{amssymb}
 \usepackage{xparse}
 \usepackage[
@@ -38,9 +35,6 @@
 \def\mdseries@sf{l}
 \makeatother
 
-\newtoggle{static}
-\settoggle{static}{false}
-
 \definecolor{backg}{RGB}{9,72,61}
 \definecolor{accent}{RGB}{0,150,136}
 
@@ -56,8 +50,6 @@
 \setbeamercolor{progress bar}{fg=draccent, bg=draccent}
 \setbeamercolor{block title}{fg=dracfore, bg=dracblock}
 \setbeamercolor{alerted text}{fg=draccent}
-
-\newcommand{\wait}{\iftoggle{static}{}{\pause}}
 
 \newtheorem{axiom}{Axiom(s)}
 

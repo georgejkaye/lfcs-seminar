@@ -3,16 +3,16 @@
 \begin{frame}
     \frametitle{We need some meaning}
 
-    \wait
+    \pause
     Values are interpreted in a \alert{lattice}:
-    
-    \wait
+
+    \pause
     \begin{minipage}{0.49\textwidth}
         \[
             \scalebox{1.5}{\tikzfig{circuits/a4}}
         \]
     \end{minipage}
-    \wait
+    \pause
     \begin{minipage}{0.49\textwidth}
         \begin{align*}
             \dsptikzfig{circuits/components/values/v}[\belnapfalse]
@@ -29,7 +29,7 @@
 \begin{frame}
     \frametitle{Let's make everything a function}
 
-    \wait
+    \pause
     \setlength{\tabcolsep}{1.5em}
     \renewcommand{\arraystretch}{2}
 
@@ -41,7 +41,7 @@
             &
             \(\morph{\overline{g}}{\valuetuple{m}}{\values}\)
             \\
-            \wait
+            \pause
             \hspace{0.175cm}
             \dsptikzfig{strings/structure/monoid/init}[comb]
             &
@@ -49,28 +49,28 @@
             &
             \(() \mapsto (\bot)\)
             \\
-            \wait
+            \pause
             \dsptikzfig{strings/structure/comonoid/copy}[comb]
             &
             \alert{copy}
             &
             \(x \mapsto (x, x)\)
             \\
-            \wait
+            \pause
             \dsptikzfig{strings/structure/monoid/merge}[comb]
             &
             \alert{join in the lattice}
             &
             \((x, y) \mapsto x \ljoin y\)
             \\
-            \wait
+            \pause
             \dsptikzfig{strings/structure/comonoid/discard}[comb]
             &
             \alert{discard}
             &
             \(x \mapsto \bullet\)
         \end{tabular}
-        \wait
+        \pause
 
         \vspace{0.5em}
 
@@ -84,7 +84,7 @@
         \LARGE
         How do we model \alert{delay}?
 
-        \wait
+        \pause
         \alert{Streams!}
 \end{frame}
 \begin{frame}
@@ -111,7 +111,7 @@
         \cdots
     \]
 
-    \wait
+    \pause
     A \alert{stream function} \(\stream{\values} \to \stream{\values}\) consumes and
     produces streams.
     \[
@@ -143,14 +143,14 @@
 \end{frame}
 \begin{frame}
     \frametitle{Interpreting the sequential components}
-    \wait
+    \pause
     \[
         \dsptikzfig{circuits/components/values/v}[v]()
         :=
         v \streamcons \bot \streamcons \bot \streamcons \bot \streamcons \cdots
     \]
 
-    \wait
+    \pause
     \vspace{1em}
 
     \[
@@ -170,41 +170,41 @@
     \)?
 
     \Huge
-    \wait
+    \pause
     No.
 
     \scriptsize
-    \wait
+    \pause
     (but this is to be expected!)
 \end{frame}
 \begin{frame}
     \frametitle{Circuits are causal and monotone}
 
-    \wait
+    \pause
     \Large
     Circuits are \alert{causal}.
 
-    \wait
+    \pause
 
     \normalsize
     They can only depend \alert{what they've seen so far}.
 
-    \wait
+    \pause
 
     \Large
     Circuits are \alert{monotone}.
 
-    \wait
+    \pause
 
     \normalsize
     They are constructed from \alert{monotone functions}.
 
-    \wait
+    \pause
 
     Is that all?
-    \wait
+    \pause
     \alert{Not quite...}
-    \wait
+    \pause
     (but we'll get there)
 
 
@@ -216,31 +216,31 @@
         \morph{f}{\valuetuplestream{m}}{\valuetuplestream{n}}
     \) and an element \(a \in \valuetuple{m}\)...
 
-    \wait
+    \pause
 
     \Large
     \alert{initial output} \quad
     \(\mealyoutput{f}{a} \in \valuetuple{n}\)
 
-    \wait
+    \pause
 
     \normalsize
     `the first thing \(f\) produces given \(a\)'
 
-    \wait
+    \pause
 
     \Large
     \alert{stream derivative} \quad
     \(\mealytransition{f}{a} \in \valuetuplestream{m} \to \valuetuplestream{n}\)
 
-    \wait
+    \pause
 
     \normalsize
     `how \(f\) behaves after seeing \(a\) first'
 
     \vspace{1em}
 
-    \wait
+    \pause
     Hold on, these look familiar...
 
 \end{frame}
@@ -256,7 +256,7 @@
 
         Mealy machine moment!
 
-        \wait
+        \pause
 
         \normalsize
         Stream functions are the \emph{states} in a Mealy machine.
@@ -268,15 +268,15 @@
 
     Circuits have a finite number of components.
 
-    \wait
+    \pause
 
     So there are finite number of states in the Mealy machine.
 
-    \wait
+    \pause
 
     So the outputs of streams given some input must be \alert{periodic}.
 
-    \wait
+    \pause
 
     (There are finitely many \alert{stream derivatives}).
 \end{frame}
