@@ -30,6 +30,7 @@
 
         \renewcommand{\arraystretch}{1.75}
         \begin{tabular}{cl}
+            \hspace{0.175cm}
             \dsptikzfig{strings/structure/monoid/init}[comb] &
             disconnected \\
             \dsptikzfig{strings/structure/comonoid/copy}[comb] &
@@ -38,14 +39,15 @@
             \dsptikzfig{strings/structure/monoid/merge}[comb] &
             join \\
             \wait
-            \dsptikzfig{strings/structure/comonoid/discard}[comb] &
+            \dsptikzfig{strings/structure/comonoid/discard}[comb]
+            \hspace{0.175cm} &
             stub \\
         \end{tabular}
     \end{minipage}
     \wait
     \begin{minipage}{0.32\textwidth}
         \centering
-        \alert{category structure}
+        \alert{categorical structure}
 
         \vspace{1em}
 
@@ -76,13 +78,17 @@
     \wait
 
     \centering
-    Introduces \alert{state}.
+    We need`' \alert{state}.
 
     \renewcommand{\arraystretch}{1.75}
+
+    \wait
 
     \begin{minipage}{0.3\textwidth}
         \centering
         \alert{Values}
+
+        \wait
 
         \begin{tabular}{rl}
             \dsptikzfig{circuits/components/values/v}[\belnapfalse] &
