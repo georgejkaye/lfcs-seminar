@@ -5,6 +5,12 @@
 \usepackage{etoolbox}
 \usepackage{amssymb}
 \usepackage{xparse}
+\usepackage[
+    natbib=true,
+    backend=biber,
+    style=authoryear
+]{biblatex}
+\addbibresource{refs.bib}
 
 \input{macros/sets}
 \input{macros/category}
@@ -53,7 +59,7 @@
 
 \newcommand{\wait}{\iftoggle{static}{}{\pause}}
 
-\newtheorem{proposition}{Proposition}
+\newtheorem{axiom}{Axiom(s)}
 
 \title{A compositional theory of digital circuits}
 \author{
@@ -78,4 +84,5 @@
     \input{sections/syntax}
     \input{sections/semantics}
     \input{sections/equational}
+    \input{sections/conclusion}
 \end{document}
