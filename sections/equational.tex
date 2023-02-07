@@ -6,11 +6,11 @@
     We have a \alert{sound and complete} semantics for circuits as
     \alert{stream functions}.
 
-    \wait
+    \pause
 
     But reasoning with streams can be a \alert{pain}...
 
-    \wait
+    \pause
     Why not reason \alert{equationally}?
 \end{frame}
 \begin{frame}
@@ -92,7 +92,7 @@
         \end{minipage}
     \end{axiom}
 
-    \wait
+    \pause
 
     \visible<6->{
         For \(
@@ -112,7 +112,7 @@
     \frametitle{Let's get structural}
 
     \centering
-    \wait
+    \pause
 
     \((
         \dsptikzfig{strings/structure/monoid/merge}[comb],
@@ -120,7 +120,7 @@
         \dsptikzfig{strings/structure/comonoid/copy}[comb],
         \dsptikzfig{strings/structure/comonoid/discard}[comb],
     )\) is a \alert{bialgebra}.
-    \wait
+    \pause
     \begin{axiom}
         \centering
         \begin{minipage}{0.21\textwidth}
@@ -208,20 +208,20 @@
 
     \alert{Isolate} the sequential and combinational components...
 
-    \wait
+    \pause
     \[
         \dsptikzfig{strings/category/f}[F][seq]
         =
-        \dsptikzfig{circuits/productivity/pre-mealy-form-verbose}[F][s]
+        \dsptikzfig{circuits/productivity/pre-mealy-form-verbose}[F][\overline{s}]
     \]
 
-    \wait
+    \pause
     This is \emph{almost} another Mealy machine moment...
     \raisebox{-1.5em}{
         \includegraphics[width=0.1\textwidth]{imgs/mealy}
     }
 
-    \wait
+    \pause
     ...but there is the non-delay-guarded trace!
 \end{frame}
 \begin{frame}
@@ -229,7 +229,7 @@
 
     In industry, normally circuits must be \alert{delay-guarded}.
 
-    \wait
+    \pause
 
     But this rules out some \alert{clever} circuits!
 
@@ -241,7 +241,7 @@
         \dsptikzfig{circuits/examples/cyclic-combinational/reduced-true}
     }
 
-    \wait
+    \pause
 
     \vspace{0.5em}
 
@@ -254,19 +254,19 @@
 
     \(\values\) is a \alert{finite} lattice...\
 
-    \wait
+    \pause
     The functions are monotone...
 
-    \wait
+    \pause
     We can compute the \alert{least fixed point} in finite iterations!
-    \wait
+    \pause
 
     \centering
     \[
         \dsptikzfig{circuits/instant-feedback/f0-box}
         :=
         \dsptikzfig{circuits/instant-feedback/f0-definition}
-        \wait
+        \pause
         \qquad
         \dsptikzfig{circuits/instant-feedback/fkp1-box}
         :=
@@ -290,12 +290,12 @@
     \[
         \dsptikzfig{circuits/instant-feedback/trand}
         \quad
-        \wait
+        \pause
         =
         \quad
         \dsptikzfig{circuits/instant-feedback/trand-instfb}
         =
-        \wait
+        \pause
         \quad
         \dsptikzfig{strings/structure/monoid/init}[comb]
     \]
@@ -313,10 +313,10 @@
         \quad
         =
         \quad
-        \dsptikzfig{circuits/productivity/mealy-form-verbose}[F][\overline{s}]
+        \dsptikzfig{circuits/productivity/mealy-form-verbose}[\tilde{F}][\overline{s}]
     \]
-    
-    \wait
+
+    \pause
 
     \includegraphics[width=0.25\textwidth]{imgs/mealy}
 
@@ -326,11 +326,11 @@
 
     What more structure can we add?
 
-    \wait
+    \pause
 
     \alert{Forking} is natural...
 
-    \wait
+    \pause
 
     \begin{axiom}
         \begin{minipage}{0.33\textwidth}
@@ -369,7 +369,7 @@
                 \dsptikzfig{circuits/axioms/stub-gate-rhs}
             \end{equation*}
         \end{minipage}
-        \wait
+        \pause
         \begin{minipage}{0.2\textwidth}
             \begin{equation*}
                 \dsptikzfig{circuits/axioms/unobservable-lhs}
@@ -377,7 +377,7 @@
                 \dsptikzfig{circuits/axioms/unobservable-rhs}
             \end{equation*}
         \end{minipage}
-        \wait
+        \pause
         \quad
         \begin{minipage}{0.3\textwidth}
             \begin{equation*}
@@ -411,10 +411,10 @@
     \]
 
     \LARGE
-    \wait
+    \pause
     Cartesian!
     \normalsize
-    \wait
+    \pause
     \[
         \dsptikzfig{strings/traced/trace-rhs}[F][seq]
         =
@@ -443,12 +443,12 @@
     \frametitle{Running the simulation}
 
     \begin{axiom}
-        \wait
+        \pause
         \[
             \dsptikzfig{circuits/axioms/streaming-lhs-verbose}[g][v]
             =
             \dsptikzfig{circuits/axioms/streaming-rhs}[g][v]
-            \wait
+            \pause
             \qquad
             \dsptikzfig{circuits/axioms/join-delay-lhs}
             =
@@ -469,16 +469,16 @@
     \frametitle{Running the simulation}
     \[
         \dsptikzfig{circuits/productivity/productive-goal-lhs-verbose}[F][v]
-        \wait
+        \pause
         =
-        \dsptikzfig{circuits/productivity/productive-lhs-verbose}[F][v][s]
+        \dsptikzfig{circuits/productivity/productive-lhs-verbose}[F][s][v]
     \]
 
     \vspace{0.5em}
-    \wait
+    \pause
     \(
         = \dsptikzfig{circuits/productivity/productive-step-9}[F][s][v]
     \)
-    \wait
+    \pause
     \raisebox{-3em}{\includegraphics[width=0.2\textwidth]{imgs/mealy}}
 \end{frame}

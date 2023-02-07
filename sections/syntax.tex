@@ -4,7 +4,7 @@
     \frametitle{Combinational circuit components}
     \renewcommand{\arraystretch}{1.25}
     \vspace{1em}
-    \wait
+    \pause
     \begin{minipage}{0.33\textwidth}
         \centering
         \alert{gates}
@@ -21,7 +21,7 @@
             NOT gate \\
         \end{tabular}
     \end{minipage}
-    \wait
+    \pause
     \begin{minipage}{0.32\textwidth}
         \centering
         \alert{(co)monoid structure}
@@ -29,24 +29,24 @@
         \vspace{1em}
 
         \renewcommand{\arraystretch}{1.75}
-        \wait
+        \pause
         \begin{tabular}{cl}
             \hspace{0.175cm}
             \dsptikzfig{strings/structure/monoid/init}[comb] &
             disconnected \\
-            \wait
+            \pause
             \dsptikzfig{strings/structure/comonoid/copy}[comb] &
             fork \\
-            \wait
+            \pause
             \dsptikzfig{strings/structure/monoid/merge}[comb] &
             join \\
-            \wait
+            \pause
             \dsptikzfig{strings/structure/comonoid/discard}[comb]
             \hspace{0.175cm} &
             stub \\
         \end{tabular}
     \end{minipage}
-    \wait
+    \pause
     \begin{minipage}{0.32\textwidth}
         \centering
         \alert{categorical structure}
@@ -55,10 +55,10 @@
 
         \renewcommand{\arraystretch}{1.75}
         \begin{tabular}{cl}
-            \wait
+            \pause
             \dsptikzfig{strings/category/identity}[comb] &
             identity \\
-            \wait
+            \pause
             \dsptikzfig{strings/symmetric/symmetry}[comb] &
             symmetry \\
         \end{tabular}
@@ -67,7 +67,7 @@
 
     \vspace{0.5em}
 
-    \wait
+    \pause
     \begin{center}
         \alert{Light} circuits \(
             \dsptikzfig{strings/category/f}[F][comb]
@@ -77,27 +77,27 @@
 \begin{frame}
     \frametitle{Sequential circuit components}
 
-    \wait
+    \pause
 
     \centering
     We need \alert{state}.
 
     \renewcommand{\arraystretch}{1.75}
 
-    \wait
+    \pause
 
     \begin{minipage}{0.3\textwidth}
         \centering
         \alert{Values}
 
-        \wait
+        \pause
 
         \begin{tabular}{rl}
             \dsptikzfig{circuits/components/values/v}[\belnapfalse] &
             false \\
             \dsptikzfig{circuits/components/values/v}[\belnaptrue] &
             true \\
-            \wait
+            \pause
             \dsptikzfig{circuits/components/values/v}[\belnapboth] &
             short circuit
         \end{tabular}
@@ -108,7 +108,7 @@
             \iltikzfig{strings/structure/monoid/init}[comb]
         \), models \emph{Belnap's four value logic}
     \end{minipage}
-    \wait
+    \pause
     \begin{minipage}{0.3\textwidth}
         \centering
         \alert{Delay}
@@ -117,7 +117,7 @@
             \dsptikzfig{circuits/components/waveforms/delay}
         \]
     \end{minipage}
-    \wait
+    \pause
     \begin{minipage}{0.3\textwidth}
         \centering
         \alert{Feedback}
@@ -131,7 +131,7 @@
 
     \vspace{1em}
 
-    \wait
+    \pause
 
     \begin{center}
         \alert{Dark} circuits \(
@@ -147,16 +147,16 @@
     Circuits are morphisms in a
     \alert{freely generated symmetric traced monoidal category} (STMC).
 
-    \wait
+    \pause
     \dsptikzfig{strings/category/composition-2-2}[F][G][seq]
-    \wait
+    \pause
     \quad
     \dsptikzfig{strings/monoidal/tensor-2-2}[F][G][seq]
-    \wait
+    \pause
     \quad
     \dsptikzfig{strings/traced/trace-rhs}[F][seq]
 
-    \wait
+    \pause
 
     \vspace{1em}
 
