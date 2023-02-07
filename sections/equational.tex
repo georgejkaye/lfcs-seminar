@@ -13,12 +13,42 @@
     \wait
     Why not reason \alert{equationally}?
 \end{frame}
-
 \begin{frame}
-    \frametitle{It's combinational time again}
+    \frametitle{The two types of equation}
 
     \centering
     \begin{minipage}{0.49\textwidth}
+        \centering
+        \alert{Global}
+
+        \vspace{1.5em}
+
+        \dsptikzfig{strings/structure/cartesian/naturality-copy-lhs}[F][seq]
+        =
+        \dsptikzfig{strings/structure/cartesian/naturality-copy-rhs}[F][seq]
+    \end{minipage}
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \alert{Local}
+
+        \vspace{1.5em}
+
+        \dsptikzfig{circuits/axioms/fork-lhs}[v]
+        =
+        \dsptikzfig{circuits/axioms/fork-rhs}[v]
+    \end{minipage}
+
+    \vspace{1.5em}
+
+    We want to stick to local equations \alert{as much as possible}.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{What do the values do?}
+
+    \centering
+    \begin{minipage}{0.32\textwidth}
         \begin{equation*}
             \dsptikzfig{circuits/axioms/gate-lhs}
             =
@@ -33,7 +63,7 @@
             \end{equation*}
         }
     \end{minipage}
-    \begin{minipage}{0.49\textwidth}
+    \begin{minipage}{0.32\textwidth}
         \visible<2->{
             \begin{equation*}
                 \dsptikzfig{circuits/axioms/fork-lhs}[v]
@@ -50,11 +80,19 @@
             \end{equation*}
         }
     \end{minipage}
+    \begin{minipage}{0.32\textwidth}
+        \visible<5->{
+            \begin{equation*}
+                \dsptikzfig{circuits/axioms/disconnect-lhs}
+                =
+                \dsptikzfig{circuits/axioms/disconnect-rhs}
+            \end{equation*}
+        }
+    \end{minipage}
 
     \wait
 
-    \visible<5->{
-        \(\scircsigmac := \scircsigma /\) these equations
+    \visible<6->{
         \begin{theorem}
             For \(
                 \dsptikzfig{circuits/components/values/v}[\overline{v}]
@@ -66,7 +104,7 @@
                 \dsptikzfig{circuits/components/circuits/f-applied}[F][comb][\overline{v}]
                     =
                 \dsptikzfig{circuits/components/values/v}[\overline{w}]
-            \) in \(\scircsigmac\).
+            \).
         \end{theorem}
     }
 \end{frame}
@@ -74,6 +112,7 @@
     \frametitle{Let's get structural}
 
     \centering
+    \wait
 
     \[(
         \dsptikzfig{strings/structure/monoid/merge}[comb],
@@ -81,6 +120,8 @@
         \dsptikzfig{strings/structure/comonoid/copy}[comb],
         \dsptikzfig{strings/structure/comonoid/discard}[comb],
     )\] is a \alert{bialgebra}.
+
+    \wait
 
     \begin{minipage}{0.21\textwidth}
         \begin{equation*}
@@ -156,9 +197,24 @@
     \end{minipage}
 \end{frame}
 \begin{frame}
-    \frametitle{Don't forget the useful circuits}
+    \frametitle{Splitting things up}
 
-    (pre)Mealy form (disconnect)
+    To deal with more complicated circuits we need to \alert{isolate} the
+    sequential and combinational components...
+
+    \centering
+    \wait
+    \[
+        \dsptikzfig{strings/category/f}[F][seq]
+        =
+        \dsptikzfig{circuits/productivity/pre-mealy-form}[F][s]
+    \]
+
+    \wait
+    This is \emph{almost} another Mealy machine moment...
+    \raisebox{1.5em}{
+        \includegraphics[width=0.1\textwidth]{imgs/mealy}
+    }
 
 \end{frame}
 \begin{frame}
